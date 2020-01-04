@@ -1,4 +1,5 @@
 {
     "workbench.colorTheme": "Visual Studio Dark",
-    "prettier.arrowParens": "always"
+    "prettier.arrowParens": "always",
+    "git.ignoreLimitWarning": true
 }
