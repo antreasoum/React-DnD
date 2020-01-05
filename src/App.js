@@ -1,29 +1,29 @@
-import React from 'react';
-import board from './components/board';
-import card from './components/card';
-import 'bootstrap/dist/css/bootstrap.min.css';
-
-function App() {
-    return (
-        <div className="App">
-        <main className="flexbox">
+import React, { Component } from 'react';
 
 
-            <board id="board-1" className="board">
-                <card id="card-1" className="card" draggable="true">
-                    <p>card one</p>
-                </card>
-            </board>
 
-            <board id="board-2" className="board">
-                <card id="card-2" className="card" draggable="true">
-                    <p>card two</p>
-                </card>
-            </board>
 
-            </main>
-        </div>
-    );
+
+
+export default class App extends Component {
+    state = { tasks: [{name:"Example1" , category:"wip", bgcolor: "yellow"},
+                      {name:"Example2" , category:"wip" , bgcolor:"pink"},
+                      {name:"Example3" , category:"complete", bgcolor:"skyblue"}]
+            }
+
+    render () {
+        var tasks = {
+            wip: [],
+            complete: []
+        }
+
+    this.state.tasks.forEach ((t) => {
+        tasks[t.category].push(
+            <div key={t.name}
+                className="draggable"
+                style = {{backgroundColor: t.bgcolor}}>{t.name}
+            </div>
+        );
+    });
+    }
 }
-
-export default App;
